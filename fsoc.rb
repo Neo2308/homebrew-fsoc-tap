@@ -5,13 +5,13 @@
 class Fsoc < Formula
   desc "Cisco FSO Platform Developer's Control Tool"
   homepage "https://github.com/cisco-open/fsoc"
-  version "0.43.7"
+  version "0.43.8"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.7/fsoc-darwin-arm64.tar.gz"
-      sha256 "39004c458225a1a6f242cd22a756fa41a87814243cab3487b6a48dc26220cba0"
+      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.8/fsoc-darwin-arm64.tar.gz"
+      sha256 "f95215152b4b11264f802efb3a89130f1ce92533db67316c533f3a96ae5ff7ba"
 
       def install
         Dir.glob("fsoc-*-*") do |f|
@@ -20,8 +20,8 @@ class Fsoc < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.7/fsoc-darwin-amd64.tar.gz"
-      sha256 "1044b81a3f2b83d006d164c9f3cf2155e0b6e6097cb89d480e69f38707eb581b"
+      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.8/fsoc-darwin-amd64.tar.gz"
+      sha256 "16d952c0f93ef56d832012412ad7a46c1f262c36d223dab5e8f2aa86fe369acc"
 
       def install
         Dir.glob("fsoc-*-*") do |f|
@@ -32,9 +32,9 @@ class Fsoc < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.7/fsoc-linux-amd64.tar.gz"
-      sha256 "c8ea85a3bab3b9ea013405e453501e735a8b4320c424536268de7932f345ba05"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.8/fsoc-linux-arm64.tar.gz"
+      sha256 "6446c11a86b3fb8f233bf426f5d8bc7dd5eb8252b2313e05cf4d07b072f89c44"
 
       def install
         Dir.glob("fsoc-*-*") do |f|
@@ -42,9 +42,9 @@ class Fsoc < Formula
         end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.7/fsoc-linux-arm64.tar.gz"
-      sha256 "64f74ebb1d33b8ba46ddd403c33ca43614af1821c9d1c9726822c0a7e779a2f5"
+    if Hardware::CPU.intel?
+      url "https://github.com/Neo2308/fsoc/releases/download/v0.43.8/fsoc-linux-amd64.tar.gz"
+      sha256 "f85158470135889caa7db4bbaf9f554012277c9de057defacc80b4e75b07d902"
 
       def install
         Dir.glob("fsoc-*-*") do |f|
